@@ -1,0 +1,36 @@
+gitALGORITHM three_nb_add
+
+//Taille de la phrase
+VAR
+    x:= STRING;
+    ph:= INTEGER;
+    i:=INTEGER
+    nbrMots:=INTEGER=0;
+    nbrVoy:=INTEGER
+BEGIN
+    Write("saisir la phrase");
+    read(x);
+    IF (x=null) THEN
+        write("saisir la phrase");
+        read(x);
+    END_IF
+    ph:= x.length;
+    write(ph);
+    
+    //Nombre de mots dans la phrase
+    FOR i FROM 0 TO x.length STEP 1  DO
+        IF (x[i]==" ") THEN
+            nbrMots=nbrMots+1;
+        END_IF
+    END_FOR
+
+    //Nombre de voyelles dans la phrases
+    FOR i FROM 0 TO x.length STEP 1  DO
+        IF (x[i]=="a"||x[i]=="e"||x[i]=="i"||x[i]=="y"||x[i]=="o"||x[i]=="u"||) THEN
+            nbrVoy = nbrVoy+1
+        END_IF
+    END_FOR
+END
+
+
+    
