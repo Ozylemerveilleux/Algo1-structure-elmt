@@ -1,0 +1,44 @@
+ALGORITHM SumElDistinct2
+
+VAR
+    i,j : INTEGER; //indexe représentant chaque élmt du htab1 ou htab2
+    htab1 HASH_TABLE<INTEGER,INTEGER>; //Declaration htab1 
+    htab2 HASH_TABLE<INTEGER,INTEGER>; //Declaration htab2
+    SumElDistinct2  :INTEGER := 0 ;
+    el1:INTEGER; //Elmt choisit dans le htab1
+    el2:INTEGER; //Elmt choisit dans le htab2
+    
+BEGIN 
+    htab1 HASH_TABLE<INTEGER,INTEGER>;  //Insertion des elmts HASH_TABLE<cle,valeur> htab1 
+
+    htab1.insert(9,2);
+    htab1.insert(10,1);
+    htab1.insert(11,7);
+    htab1.insert(15,9);
+    htab1.insert(13,3);
+    htab1.insert(14,12);
+   
+    htab2 HASH_TABLE<INTEGER,INTEGER>; //Insertion des elmts HASH_TABLE<cle,valeur> htab2
+   
+    htab2.insert(8,1);
+    htab2.insert(7,10);
+    htab2.insert(6,7);
+    htab2.insert(5,6);
+    htab2.insert(4,3);
+    htab2.insert(3,5);
+    htab2.insert(2,21);
+
+    FOR i FROM 0 TO 5 STEP 1  DO
+        el1:= htab1.get(i); // on choisit un elmt du htab1 et on le cherche dans le htab2
+        IF (htab2.seach(el1)= FALSE) THEN //s'il n'y'est pas on l'ajoute à la somme des elmts distincts
+            SumElDistinct1 = SumElDistinct1 + el1;
+        END_IF
+    END_FOR
+    FOR j FROM 0 TO 6 STEP 1  DO
+        el2:= htab2.get(i);
+        IF (htab1.seach(el2)= FALSE) THEN
+            SumElDistinct2 = SumElDistinct2 + el2;
+        END_IF
+    END_FOR
+   
+END

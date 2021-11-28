@@ -1,0 +1,34 @@
+ALGORITHM SumElDistinct1
+
+VAR
+    i,j: INTEGER; //indexe représentant chaque élmt du tab 1 ou 2
+    tab1: ARRAY_OF_INTERGER[5]; //Declaration et definition de la taille du tab1
+    tab2: ARRAY_OF_INTERGER[6]; //Declaration et definition de la taille du tab2
+    SumElDistinct:=0 // est une variable contenant la somme des elmts distincts
+    samEl:INTEGER:=0 // est une variable contenant les elmts équivalents
+BEGIN
+    tab1:= {2,1,7,9,3,12}; //valeurs du tab1
+    tab2:= {1, 10, 7, 6, 3, 5, 21}; //valeurs du tab2
+    FOR i FROM 0 TO 5 STEP 1  DO //iteration des elmts du tab1
+        FOR j FROM 1 TO 6 STEP 1  DO // iteration des elmts du tab2
+            IF (tab1[i]==tab2[j]) THEN // rechercher des même elmts entre les tab1 et tab2
+                samEl = 1; // condition verifié ==> on a le même elmt
+                BREAK; // Fin de l'instruction 
+            END_IF  
+        END_FOR
+            IF (samEl=0) THEN //ici la condition verifié ==> les elmts sont distincts
+                SumElDistinct = SumElDistinct + tab1[i]; //somme des elmts distincts
+            END_IF
+    END_FOR
+    FOR j FROM 0 TO 6 STEP 1  DO //iteration des elmts du tab2 (on suit la procedure pour la suite)
+        FOR i FROM 0 TO 5 STEP 1  DO
+            IF (tab2[j]==tab1[i]) THEN
+                samEl=1;
+                BREAK;
+            END_IF
+        END_FOR
+        IF (samEl=0) THEN
+            SumElDistinct = SumElDistinct+tab2[j];
+        END_IF
+    END_FOR
+END
